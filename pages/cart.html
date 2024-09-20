@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cart</title>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <marquee bgcolor="#fde0d9" loop="-1" scrollamount="5" width="100%">★★★ Free shipping on all orders over $49 ★★★</marquee>
+    <section id="header" >
+        <a href="../index.html"><img src="../img/QCLogomu.png" class="logo" alt="logo" width="70"></a>
+        <div>
+            <ul id="navbar">
+               <li><a href="../index.html">Home</a></li> 
+               <li><a href="../pages/shop.html">Shop</a></li> 
+               <li><a href="../pages/about.html">About</a></li> 
+               <li><a href="../pages/contact.html">Contact</a></li> 
+               <li id="lg-bag" class="cart"><a href="../pages/cart.html"><ion-icon name="basket"></ion-icon> <span>0</span></a></li>
+               <a href="#" id="close"><ion-icon name="close"></ion-icon></a> 
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><ion-icon name="basket"></ion-icon><span>0</span></a> 
+            <ion-icon id="bar" name="funnel"></ion-icon>
+        </div>
+    </section>
+
+    <section id="page-header" >
+        
+        <h2>CART</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </section>
+
+
+    <section id="carrito" class="section-p1">
+
+        <div class="titulo">
+                <div><p>Delete</p></div>
+                <div><p>Item</p></div>
+                <div><p>Price</p></div>
+                <div><p>Quantity</p></div>
+                <div><p>Subtotal</p></div>
+        </div>
+
+        <div class="products"></div>
+
+    </section>
+
+
+    <!-- add to cart from the same page -->
+
+
+    <!-- <div class="product">
+        <img src="../img/nail3.png" alt="Item Image">
+        <h3>Product Name</h3>
+        <p>Description</p>
+        <p>Price: $10.00</p>
+        <input type="number" id="quantity" min="1" value="1">
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total">Total: $0.00</p>
+      </div> -->
+
+
+
+    <footer class="section-p1">
+        <div class="col">
+            <img src="../img/qcLogo.png" alt="" width="100">
+            <h4>contact</h4>
+            <p><strong>email: </strong> quick-claws@gmail.com</p>
+            <p><strong>email: </strong> quick-claws@krsflvknslfknkjjrfkgmail.com</p>
+            <div class="follow">
+                <h4>follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">Delivery confirmation</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My wishlist</a>
+            <a href="#">Track order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>from app store or google play</p>
+            <div class="row">
+                <img src="../img/pay.png" alt="">
+                <img src="../img/pay.png" alt="">
+            </div>
+            <p>secured payment gateways</p>
+            <img src="../img/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>2023 quantuslux Lorem ipsum, dolor sit amet consectetur adipisicing. </p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <!-- <script>
+        let cartItems = [];
+let total = 0;
+
+function addToCart() {
+  const productName = "Product Name";
+  const price = 10.00;
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const subtotal = price * quantity;
+
+  const item = {
+    productName,
+    price,
+    quantity,
+    subtotal
+  };
+
+  cartItems.push(item);
+  total += subtotal;
+
+  displayCartItems();
+}
+
+function removeItem(index) {
+  const removedItem = cartItems.splice(index, 1)[0];
+  total -= removedItem.subtotal;
+
+  displayCartItems();
+}
+
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  cartItemsContainer.innerHTML = "";
+
+  cartItems.forEach((item, index) => {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const itemImage = document.createElement("img");
+    itemImage.src = "item-image.jpg";
+    itemImage.alt = "Item Image";
+
+    const itemDescription = document.createElement("p");
+    itemDescription.textContent = item.productName;
+
+    const itemPrice = document.createElement("p");
+    itemPrice.textContent = `Price: $${item.price.toFixed(2)}`;
+
+    const itemQuantity = document.createElement("p");
+    itemQuantity.textContent = `Quantity: ${item.quantity}`;
+
+    const itemSubtotal = document.createElement("p");
+    itemSubtotal.textContent = `Subtotal: $${item.subtotal.toFixed(2)}`;
+
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => removeItem(index));
+
+    cartItem.appendChild(itemImage);
+    cartItem.appendChild(itemDescription);
+    cartItem.appendChild(itemPrice);
+    cartItem.appendChild(itemQuantity);
+    cartItem.appendChild(itemSubtotal);
+    cartItem.appendChild(removeButton);
+
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  document.getElementById("cart-total").textContent = `Total: $${total.toFixed(2)}`;
+}
+
+
+    </script> -->
+ <script src="../script.js">
+
+ </script>   
+</body>
+</html>
